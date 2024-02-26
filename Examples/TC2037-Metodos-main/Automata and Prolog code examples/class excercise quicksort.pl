@@ -5,12 +5,26 @@
 % larger (3, 1, Y).
 % Y = 3
 
+larger(X,Y,X) :-
+    X > Y.
+
+larger(X,Y,Y).
+
 % create the pivoting rule, that recieves a list 
 % and an element, and returns 2 lists: Lesser and Greater 
 % Test case:
 % pivoting (3, [1 2 4 5 6], X, Y).
 % X = [1 2]
 % Y = [4 5 6]
+
+pivoting(P,[],[],[]).
+
+pivoting(P,[H|T],[H|X],Y) :-
+    P > H,
+    pivoting(P,T,X,Y).
+
+pivoting(P,[H|T],X,[H|Y]) :-
+    pivoting(P,T,X,Y).
 
 % create the append rule, that recieves 2 lists
 % and returns all the element appneded in a 3rd list

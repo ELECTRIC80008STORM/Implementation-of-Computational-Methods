@@ -15,7 +15,12 @@ substitute(OgItem,SubsItem,[H|T],[H|NT]) :-
     substitute(OgItem,SubsItem,T,NT).
 
 %Eliminate duplicates
+eliminate_duplicates([],[]).
 
+ed_aux([H|T],[H]) :-
+    ed_aux(T).
+
+eliminate_duplicates([H|T],[J|NT]) :-
 
 
 %Intersect lists
